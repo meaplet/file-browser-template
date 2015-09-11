@@ -1,18 +1,16 @@
 System.config({
-  "defaultJSExtensions": true,
-  "transpiler": "traceur",
-  "paths": {
+  defaultJSExtensions: true,
+  transpiler: "traceur",
+  paths: {
     "utils/*": "src/utils/*.js",
     "app/*": "src/*.js",
-    "users/*": "src/users/*.js",
+    "files/*": "src/files/*.js",
     "material-start/*": "src/*.js",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
-  }
-});
+  },
 
-System.config({
-  "map": {
+  map: {
     "angular": "github:angular/bower-angular@1.4.1",
     "angular-animate": "github:angular/bower-angular-animate@1.4.1",
     "angular-aria": "github:angular/bower-angular-aria@1.4.1",
@@ -36,4 +34,3 @@ System.config({
     }
   }
 });
-
