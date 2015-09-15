@@ -1,10 +1,13 @@
 const URL_AVATAR_ICONS = 'assets/svg/avatars.svg';
+const URL_ICON_DELETE   = 'assets/svg/delete.svg';
 const URL_ICON_DOWNLOAD    = 'assets/svg/download.svg';
 const URL_ICON_GRID    = 'assets/svg/grid.svg';
 const URL_ICON_FOLDER    = 'assets/svg/folder.svg';
 const URL_ICON_INFO    = 'assets/svg/info.svg';
 const URL_ICON_LIST    = 'assets/svg/list.svg';
 const URL_ICON_MENU    = 'assets/svg/menu.svg';
+const URL_ICON_MORE    = 'assets/svg/more.svg';
+const URL_ICON_PERSON_ADD    = 'assets/svg/person_add.svg';
 const URL_ICON_PIN    = 'assets/svg/pin.svg';
 const URL_ICON_RECENT    = 'assets/svg/recent.svg';
 const URL_ICON_SEARCH    = 'assets/svg/search.svg';
@@ -38,12 +41,15 @@ let moduleName = angular
 
         $mdIconProvider
           .defaultIconSet( URL_AVATAR_ICONS, 128 )
+          .icon('delete' ,URL_ICON_DELETE, 24)
           .icon('download' ,URL_ICON_DOWNLOAD, 24)
           .icon('folder' ,URL_ICON_FOLDER, 24)
           .icon('grid' ,URL_ICON_GRID, 24)
           .icon('info' ,URL_ICON_INFO, 24)
           .icon('list' ,URL_ICON_LIST, 24)
           .icon('menu' ,URL_ICON_MENU, 24)
+          .icon('more' ,URL_ICON_MORE, 24)
+          .icon('person_add' ,URL_ICON_PERSON_ADD, 24)
           .icon('pin' ,URL_ICON_PIN, 24)
           .icon('recent' ,URL_ICON_RECENT, 24)
           .icon('search' ,URL_ICON_SEARCH, 24)
