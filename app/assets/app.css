@@ -105,8 +105,8 @@ md-toolbar h1 {
 
 .avatar {
   position: relative;
-  width: 75px;
-  height: 75px;
+  width: 25px;
+  height: 25px;
   border: 1px solid #ddd;
   border-radius: 50%;
   display: inline-block;
@@ -152,7 +152,6 @@ md-list md-list-item button.md-button:not(.selected):not([disabled]) {
   padding:25px;
 }
 #content md-icon.avatar {
-  width:100px;
-  height:100px;
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.098), 0 1px 10px 0 rgba(0, 0, 0, 0.084);
+  width:40px;
+  height:40px;
 }
