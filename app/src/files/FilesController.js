@@ -17,6 +17,7 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
   self.selectFile   = selectFile;
   self.toggleList   = toggleFilesList;
   self.toggleLayout = toggleFilesView;
+  self.openMenu     = openMenu;
   self.share        = share;
   self.layout       = 'list';
 
@@ -101,6 +102,12 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
 
       }
   }
+
+  var originatorEv;
+  function openMenu($mdOpenMenu, ev) {
+    originatorEv = ev;
+    $mdOpenMenu(ev);
+  };
 }
 
 export default [

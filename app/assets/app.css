@@ -148,10 +148,7 @@ md-list md-list-item button.md-button:not(.selected):not([disabled]) {
 }
 
 
-#content {
-  padding:25px;
-}
-#content md-icon.avatar {
+md-icon.avatar {
   width:40px;
   height:40px;
 }

@@ -61,7 +61,8 @@
       <!-- File list content -->
       <md-content flex id="content" layout="row">
 
-        <md-list ng-if="ul.layout != 'grid'">
+        <md-list flex ng-if="ul.layout != 'grid'">
+          <md-subheader>File</md-subheader>
           <md-list-item ng-repeat="it in ul.files" ng-click="ul.selectFile(it)" ng-class="{'selected' : it === ul.selected }">
             <md-icon md-svg-icon="{{it.img}}" class="avatar"></md-icon>
             {{it.name}}
@@ -94,9 +95,17 @@
           <md-button class="md-icon-button" aria-label="Show File Info">
             <md-icon md-svg-icon="download" ></md-icon>
           </md-button>
-          <md-button class="md-icon-button" aria-label="Show File Info">
-            <md-icon md-svg-icon="more" ></md-icon>
-          </md-button>
+          <md-menu>
+            <md-button aria-label="Open file details menu" class="md-icon-button" ng-click="ul.openMenu($mdOpenMenu, $event)">
+              <md-icon md-menu-origin md-svg-icon="more"></md-icon>
+            </md-button>
+            <md-menu-content width="4">
+              <md-menu-item><md-button>Archive</md-button></md-menu-item>
+              <md-menu-item><md-button>Move to...</md-button></md-menu-item>
+              <md-menu-item><md-button>Download</md-button></md-menu-item>
+              <md-menu-item><md-button>Get link</md-button></md-menu-item>
+            </md-menu-content>
+          </md-menu>
         </div>
       </md-toolbar>
 
