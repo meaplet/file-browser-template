@@ -16,7 +16,9 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
   self.files        = [ ];
   self.selectFile   = selectFile;
   self.toggleList   = toggleFilesList;
+  self.toggleLayout = toggleFilesView;
   self.share        = share;
+  self.layout       = 'list';
 
   // Load all registered files
 
@@ -24,7 +26,6 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
         .loadAll()
         .then( function( files ) {
           self.files    = [].concat(files);
-          self.selected = files[0];
         });
 
   // *********************************
@@ -36,6 +37,15 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
    */
   function toggleFilesList() {
     $log.debug( "toggleFilesList() ");
+    $mdSidenav('left').toggle();
+  }
+
+  /**
+   * Toggle between list and grid views.
+   */
+  function toggleFilesView() {
+    $log.debug( "toggleFilesView() ");
+    self.layout = self.layout == 'list' ? 'grid' : 'list';
     $mdSidenav('left').toggle();
   }
 
