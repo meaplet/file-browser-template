@@ -140,6 +140,12 @@ md-list md-list-item button.md-button:not(.selected):not([disabled]) {
   background-color:  white;
 }
 
+.preview {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0px;
+}
 
 
 #content {

@@ -11,37 +11,38 @@ function FilesDataservice($q, $log) {
         {
           name: 'IMG_4130.jpg',
           modified: new Date(),
-          img: 'cat1.jpg'
+          img: 'delete',
+          offline: true
         },
         {
           name: 'IMG_4131.jpg',
           modified: new Date(),
-          img: 'cat2.jpg'
+          img: 'download'
         },
         {
           name: 'IMG_4132.jpg',
           modified: new Date(),
-          img: 'cat1.jpg'
+          img: 'folder'
         },
         {
           name: 'IMG_4133.jpg',
           modified: new Date(),
-          img: 'cat2.jpg'
+          img: 'grid'
         },
         {
           name: 'IMG_4134.jpg',
           modified: new Date(),
-          img: 'cat1.jpg'
+          img: 'info'
         },
         {
           name: 'IMG_4135.jpg',
           modified: new Date(),
-          img: 'cat2.jpg'
+          img: 'list'
         },
         {
           name: 'IMG_4136.jpg',
           modified: new Date(),
-          img: 'cat1.jpg'
+          img: 'menu'
         },
       ];
 

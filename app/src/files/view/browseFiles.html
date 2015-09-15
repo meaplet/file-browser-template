@@ -45,13 +45,13 @@
             <md-icon md-svg-icon="menu" ></md-icon>
           </md-button>
           <span flex></span>
-          <md-button aria-label="Search Files">
+          <md-button class="md-icon-button" aria-label="Search Files">
             <md-icon md-svg-icon="search" ></md-icon>
           </md-button>
-          <md-button aria-label="Show List View" ng-click="ul.toggleLayout()">
+          <md-button class="md-icon-button" aria-label="Show List View" ng-click="ul.toggleLayout()">
             <md-icon md-svg-icon="{{ul.layout == 'list' ? 'grid' : 'list'}}" ></md-icon>
           </md-button>
-          <md-button aria-label="Show File Info">
+          <md-button class="md-icon-button" aria-label="Show File Info">
             <md-icon md-svg-icon="info" ></md-icon>
           </md-button>
         </div>
@@ -63,6 +63,7 @@
 
         <md-list ng-if="ul.layout != 'grid'">
           <md-list-item ng-repeat="it in ul.files" ng-click="ul.selectFile(it)" ng-class="{'selected' : it === ul.selected }">
+            <md-icon md-svg-icon="{{it.img}}" class="avatar"></md-icon>
             {{it.name}}
           </md-list-item>
         </md-list>
@@ -72,54 +73,58 @@
               md-row-height-gt-md="1:1" md-row-height="4:3"
               md-gutter="8px" md-gutter-gt-sm="4px" >
           <md-grid-tile ng-repeat="it in ul.files">
-            <img src="assets/{{it.img}}"></img>
+            <md-icon md-svg-icon="svg-1" class="avatar"></md-icon>
           </md-grid-tile>
         </md-grid-list>
       </md-content>
     </div>
 
     <!-- File detail container -->
-    <div layout="column" flex="25" ng-show="ul.selected">
+    <div layout="column" ng-show="ul.selected">
 
       <!-- File detail toolbar -->
       <md-toolbar layout="row">
         <div class="md-toolbar-tools">
-          <md-button aria-label="Search Files">
+          <md-button class="md-icon-button" aria-label="Search Files">
             <md-icon md-svg-icon="person_add" ></md-icon>
           </md-button>
-          <md-button aria-label="Show List View">
+          <md-button class="md-icon-button" aria-label="Show List View">
             <md-icon md-svg-icon="delete" ></md-icon>
           </md-button>
-          <md-button aria-label="Show File Info">
+          <md-button class="md-icon-button" aria-label="Show File Info">
             <md-icon md-svg-icon="download" ></md-icon>
           </md-button>
-          <md-button aria-label="Show File Info">
+          <md-button class="md-icon-button" aria-label="Show File Info">
             <md-icon md-svg-icon="more" ></md-icon>
           </md-button>
         </div>
       </md-toolbar>
 
       <!-- File detail content -->
-      <div layout="row">
-        Available offline
-        <span flex></span>
-        <md-checkbox ng-model="ul.selected.offline" aria-label="Available offline">
-        </md-checkbox>
-      </div>
-      <md-divider></md-divider>
-
-      <md-subheader>Info</md-subheader>
-      <md-divider></md-divider>
-
-      <md-list>
-        <md-subheader>Who has access</md-subheader>
-        <md-list-item class="md-2-line">
-          <div class="md-list-item-text">
-            <h3>Private</h3>
-            <p>people listed can access</p>
+      <div>
+        <img src="assets/svg/{{ul.selected.img}}.svg" class="preview"></img>
+        <div layout="row">
+          <p layout="column" flex>Available offline</p>
+          <div layout="column">
+            <md-checkbox ng-model="ul.selected.offline" aria-label="Available offline">
+            </md-checkbox>
           </div>
-        </md-list-item>
-      </md-list>
+        </div>
+        <md-divider></md-divider>
+
+        <md-subheader>Info</md-subheader>
+        <md-divider></md-divider>
+
+        <md-list>
+          <md-subheader>Who has access</md-subheader>
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Private</h3>
+              <p>people listed can access</p>
+            </div>
+          </md-list-item>
+        </md-list>
+      </div>
     </div>
 
   </div>
