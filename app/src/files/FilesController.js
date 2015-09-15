@@ -5,7 +5,7 @@
  * @param avatarsService
  * @constructor
  */
-function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
+function FilesController( filesService, $mdSidenav, $mdBottomSheet, $mdToast, $log ) {
 
   $log = $log.getInstance( "SessionController" );
   $log.debug( "instanceOf() ");
@@ -15,6 +15,7 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
   self.selected     = null;
   self.files        = [ ];
   self.selectFile   = selectFile;
+  self.downloadFile = downloadFile;
   self.toggleList   = toggleFilesList;
   self.toggleLayout = toggleFilesView;
   self.openMenu     = openMenu;
@@ -59,6 +60,16 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
 
     self.selected = angular.isNumber(file) ? $scope.files[file] : file;
     self.toggleList();
+  }
+
+  function downloadFile ( file ) {
+    $log.debug( "downloadFile( {name} ) ", file);
+
+    $mdToast.show(
+      $mdToast.simple()
+        .content(file.name + ' (not really) downloaded')
+        .position('top right')
+    );
   }
 
   /**
@@ -111,7 +122,7 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $log ) {
 }
 
 export default [
-    'filesService', '$mdSidenav', '$mdBottomSheet', '$log',
+    'filesService', '$mdSidenav', '$mdBottomSheet', '$mdToast', '$log',
     FilesController
   ];
 
