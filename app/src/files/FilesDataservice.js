@@ -42,7 +42,7 @@ function FilesDataservice($q, $log) {
         {
           name: 'IMG_4136.jpg',
           modified: new Date(),
-          img: 'menu'
+          img: 'camera'
         },
       ];
 

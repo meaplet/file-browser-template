@@ -20,8 +20,18 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $mdToast, $l
   self.toggleLayout = toggleFilesView;
   self.openMenu     = openMenu;
   self.share        = share;
+  self.createWithSheet = createWithSheet;
   self.layout       = 'list';
 
+  self.fileTypes = [
+    {label: 'Document', icon: 'document'},
+    {label: 'Spreadsheet', icon: 'spreadsheet'},
+    {label: 'Folder', icon: 'folder'}
+  ];
+  self.uploadTypes = [
+    {label: 'Upload photos or videos', icon: 'upload'},
+    {label: 'Use Camera', icon: 'camera'}
+  ];
   // Load all registered files
 
   filesService
@@ -75,6 +85,45 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $mdToast, $l
   /**
    * Show the bottom sheet
    */
+  function createWithSheet( $event ) {
+      $log.debug( "createFileFromSheet()");
+
+      var fileTypes = self.fileTypes;
+      var uploadTypes = self.uploadTypes;
+
+      $mdBottomSheet.show({
+        parent: angular.element(document.getElementById('content')),
+        templateUrl: 'src/files/view/createSheet.html',
+        controller: [ '$mdBottomSheet', '$log', CreateSheetController],
+        controllerAs: "cf",
+        bindToController : true,
+        targetEvent: $event
+      }).then(function(clickedItem) {
+        $log.debug( clickedItem.name + ' clicked!');
+      });
+
+      /**
+       * Bottom Sheet controller for the Create File menu
+       */
+      function CreateSheetController( $mdBottomSheet, $log ) {
+
+        $log = $log.getInstance( "CreateSheetController" );
+        $log.debug( "instanceOf() ");
+
+        this.fileTypes = fileTypes;
+        this.uploadTypes = uploadTypes;
+
+        this.performAction = function(action) {
+          $log.debug( "create new ( {label} )", action);
+          $mdBottomSheet.hide(action);
+        };
+
+      }
+  }
+
+  /**
+   * Show the bottom sheet
+   */
   function share($event) {
       $log.debug( "contactFile()");
 
@@ -106,6 +155,8 @@ function FilesController( filesService, $mdSidenav, $mdBottomSheet, $mdToast, $l
           { name: 'Google+'     , icon: 'google_plus' , icon_url: 'assets/svg/google_plus.svg'},
           { name: 'Hangout'     , icon: 'hangouts'    , icon_url: 'assets/svg/hangouts.svg'}
         ];
+
+
         this.performAction = function(action) {
           $log.debug( "makeContactWith( {name} )", action);
           $mdBottomSheet.hide(action);

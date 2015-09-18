@@ -57,6 +57,36 @@
         </div>
       </md-toolbar>
 
+      <md-menu class="md-list md-has-header">
+        <md-button class="md-fab" aria-label="Create (menu)" ng-click="$mdOpenMenu($event)">
+          <md-icon md-svg-icon="add"></md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-subheader>Create</md-subheader>
+          <md-menu-item ng-repeat="ft in ul.fileTypes">
+            <md-button>
+              <md-icon md-svg-icon="{{ft.icon}}"></md-icon>
+              {{ft.label}}
+            </md-button>
+          </md-menu-item>
+
+          <md-menu-divider></md-menu-divider>
+
+          <md-menu-item ng-repeat="ut in ul.uploadTypes">
+            <md-button>
+              <md-icon md-svg-icon="{{ut.icon}}"></md-icon>
+              {{ut.label}}
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+
+      <md-button class="md-fab" ng-if="$mdMedia('sm')"
+          aria-label="Create (bottom sheet)" ng-click="ul.createWithSheet($event)" >
+        <md-icon md-svg-icon="add"></md-icon>
+      </md-button>
+
+
 
       <!-- File list content -->
       <md-content flex id="content" layout="row">

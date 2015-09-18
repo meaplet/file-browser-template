@@ -1,6 +1,10 @@
 const URL_AVATAR_ICONS = 'assets/svg/avatars.svg';
+const URL_ICON_ADD = 'assets/svg/add.svg';
+const URL_ICON_CAMERA = 'assets/svg/camera.svg';
 const URL_ICON_DELETE   = 'assets/svg/delete.svg';
 const URL_ICON_DOWNLOAD    = 'assets/svg/download.svg';
+const URL_ICON_DRIVE_DOCUMENT = 'assets/svg/drive_document.svg';
+const URL_ICON_DRIVE_SPREADSHEET = 'assets/svg/drive_spreadsheet.svg';
 const URL_ICON_GRID    = 'assets/svg/grid.svg';
 const URL_ICON_FOLDER    = 'assets/svg/folder.svg';
 const URL_ICON_INFO    = 'assets/svg/info.svg';
@@ -41,7 +45,10 @@ let moduleName = angular
 
         $mdIconProvider
           .defaultIconSet( URL_AVATAR_ICONS, 128 )
+          .icon('add', URL_ICON_ADD, 24)
+          .icon('camera', URL_ICON_CAMERA, 24)
           .icon('delete' ,URL_ICON_DELETE, 24)
+          .icon('document', URL_ICON_DRIVE_DOCUMENT, 24)
           .icon('download' ,URL_ICON_DOWNLOAD, 24)
           .icon('folder' ,URL_ICON_FOLDER, 24)
           .icon('grid' ,URL_ICON_GRID, 24)
@@ -54,6 +61,7 @@ let moduleName = angular
           .icon('recent' ,URL_ICON_RECENT, 24)
           .icon('search' ,URL_ICON_SEARCH, 24)
           .icon('share' ,URL_ICON_SHARE, 24)
+          .icon('spreadsheet', URL_ICON_DRIVE_SPREADSHEET, 24)
           .icon('star' ,URL_ICON_STAR, 24)
           .icon('upload' ,URL_ICON_UPLOAD, 24);
 
